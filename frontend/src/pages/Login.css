@@ -1,0 +1,44 @@
+/* Background for login page */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #001060); /* Gradient background */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  /* Styling for buttons */
+  .button-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .login-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .register-btn {
+    background-color: #ff5733;
+    color: white;
+  }
+  
+  /* Hover effect for buttons */
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  

@@ -1,0 +1,44 @@
+/* src/pages/Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #7d003e;  /* Vibrant pink background */
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .home-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00bfff; /* Vibrant blue */
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #009acd; /* Slightly darker blue on hover */
+  }
+  

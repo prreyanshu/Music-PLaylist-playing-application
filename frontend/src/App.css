@@ -1,0 +1,46 @@
+/* Container to center everything */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  /* Button container to have spacing between buttons */
+  .button-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Button styles */
+  .home-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: white;
+  }
+  
+  .login-btn {
+    background-color: #4CAF50; /* Green */
+  }
+  
+  .register-btn {
+    background-color: #ff5733; /* Red/Orange */
+  }
+  
+  /* Hover effects */
+  .home-btn:hover {
+    transform: scale(1.1);
+  }
+  

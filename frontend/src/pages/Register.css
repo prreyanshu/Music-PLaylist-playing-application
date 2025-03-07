@@ -1,0 +1,101 @@
+/* 🌟 Full-screen glass effect */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+/* 🔳 Glassmorphism Card */
+.register-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 350px;
+  color: white;
+}
+
+/* 🖋️ Title */
+h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* 📩 Form Inputs */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.register-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 🎭 Input Glow Effect */
+.register-form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* 🔘 Modern Button */
+.register-btn {
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  color: white;
+  box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.register-btn:hover {
+  background: linear-gradient(90deg, #ff5e62, #ff9966);
+  transform: scale(1.05);
+}
+
+/* 🎉 Success & Error Message */
+.message {
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+/* 🔗 Login Link */
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
