@@ -19,4 +19,9 @@ const protect = (req, res, next) => {
   }
 };
 
+
+// const { protect } = require("../middleware/authMiddleware");
+// router.get("/", protect, getPlaylists);
+
+
 module.exports = { protect };

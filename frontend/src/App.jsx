@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import DashboardHeader from "./components/DashboardHeader";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -11,17 +11,25 @@ const App = () => {
   const location = useLocation();
   const authToken = localStorage.getItem("token");
 
+  // 🔐 Protected Route Wrapper
+  const ProtectedRoute = ({ element }) => {
+    return authToken ? element : <Navigate to="/login" />;
+  };
+
   return (
     <div>
-      {/* Show DashboardHeader only if user is logged in
-      {authToken && location.pathname !== "/login" && location.pathname !== "/register" && <DashboardHeader />} */}
+      {/* ✅ Show DashboardHeader only if user is logged in */}
+      {authToken && !["/login", "/register"].includes(location.pathname) && (
+        <DashboardHeader />
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/playlist" element={<Playlist />} />
+        {/* ✅ Protected Routes */}
+        <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
+        <Route path="/playlist" element={<ProtectedRoute element={<Playlist />} />} />
       </Routes>
     </div>
   );

@@ -1,27 +1,19 @@
 const express = require("express");
 const { protect } = require("../middleware/authMiddleware");
-const Playlist = require("../models/Playlist");
+const { getPlaylists, createPlaylist, addSongToPlaylist, deletePlaylist } = require("../controllers/playlistController");
 
 const router = express.Router();
 
-// ✅ Get All Playlists
-router.get("/", protect, async (req, res) => {
-  const playlists = await Playlist.find({ user: req.user });
-  res.json(playlists);
-});
+// ✅ Get all playlists
+router.get("/", protect, getPlaylists);
 
-// ✅ Create a Playlist
-router.post("/", protect, async (req, res) => {
-  const { name } = req.body;
-  const newPlaylist = new Playlist({ name, user: req.user, songs: [] });
-  await newPlaylist.save();
-  res.status(201).json(newPlaylist);
-});
+// ✅ Create a new playlist
+router.post("/", protect, createPlaylist);
 
-// ✅ Delete a Playlist
-router.delete("/:id", protect, async (req, res) => {
-  await Playlist.findByIdAndDelete(req.params.id);
-  res.json({ message: "Playlist deleted" });
-});
+// ✅ Add song to playlist
+router.post("/addSong", protect, addSongToPlaylist);
+
+// ✅ Delete a playlist
+router.delete("/:id", protect, deletePlaylist);
 
 module.exports = router;

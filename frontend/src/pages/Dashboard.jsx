@@ -4,6 +4,9 @@ import api from "../services/api";
 import { motion } from "framer-motion";
 import "../styles/Dashboard.css"; // ✅ Import the updated CSS
 import DashboardHeader from "../components/DashboardHeader"; // ✅ Import the new header
+import axios from "axios";
+axios.get("http://localhost:3000/songs") // ✅ Correct
+
 
 const Dashboard = () => {
   const navigate = useNavigate();

@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/database");
+const songRoutes = require('./routes/songRoutes'); // ✅ Import this file
+const playlistRoutes = require('./routes/playlistRoutes');
+const authRoutes = require("./routes/authRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -40,6 +43,10 @@ app._router.stack.forEach((middleware) => {
     console.log(`➡️  ${Object.keys(middleware.route.methods).join(", ").toUpperCase()} ${middleware.route.path}`);
   }
 });
+
+app.use('/songs', songRoutes);
+app.use("/playlists", playlistRoutes); // 🔹 Ensure this is added
+app.use("/auth", authRoutes);
 
 // ✅ Handle unknown routes
 app.use((req, res) => {
