@@ -14,7 +14,7 @@ const app = express();
 // ✅ Middleware
 app.use(express.json());
 app.use(cors());
-
+app.use("/api", songRoutes); 
 // ✅ Connect to MongoDB
 connectDB();
 
@@ -44,9 +44,8 @@ app._router.stack.forEach((middleware) => {
   }
 });
 
-app.use('/songs', songRoutes);
-app.use("/playlists", playlistRoutes); // 🔹 Ensure this is added
-app.use("/auth", authRoutes);
+console.log(app._router.stack.map(r => r.route && r.route.path).filter(Boolean));
+
 
 // ✅ Handle unknown routes
 app.use((req, res) => {

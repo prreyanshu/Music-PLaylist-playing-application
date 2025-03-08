@@ -38,25 +38,28 @@ const Login = () => {
 
       <form onSubmit={handleLogin} className="login-form">
         <input 
+        className='email-input'
           type="email" 
           placeholder="Email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
           required 
-        />
+        /> <br />
+            <br />
         
-        <input 
+        <input className='password-input'
           type="password" 
           placeholder="Password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
           required 
-        />
+        /><br /> <br />
         
         <button type="submit" className="btn login-btn">Login</button>
       </form>
 
-      <p>Don't have an account? <Link to="/register">Register here</Link></p>
+      <p>Don't have an account? <br /> <br />
+        <Link className="register-link" to="/register">Register here</Link></p>
     </div>
   );
 };

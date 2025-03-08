@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 import "../styles/Dashboard.css"; // ✅ Import the updated CSS
 import DashboardHeader from "../components/DashboardHeader"; // ✅ Import the new header
 import axios from "axios";
-axios.get("http://localhost:3000/songs") // ✅ Correct
+
+useEffect(() => {
+  axios.get("http://localhost:3000/api/songs") // ADD `/api`
+    .then(response => setSongs(response.data))
+    .catch(error => console.error("Error fetching songs:", error));
+}, []);
 
 
 const Dashboard = () => {

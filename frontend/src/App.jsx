@@ -18,11 +18,6 @@ const App = () => {
 
   return (
     <div>
-      {/* ✅ Show DashboardHeader only if user is logged in */}
-      {authToken && !["/login", "/register"].includes(location.pathname) && (
-        <DashboardHeader />
-      )}
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
