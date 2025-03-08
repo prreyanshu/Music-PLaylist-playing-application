@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { motion } from "framer-motion";
+import "../styles/Dashboard.css"; // ✅ Import the updated CSS
+import DashboardHeader from "../components/DashboardHeader"; // ✅ Import the new header
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -9,15 +11,14 @@ const Dashboard = () => {
   const [suggestedSongs, setSuggestedSongs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch Playlists
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      navigate("/login"); // ✅ Redirect if no token
+      navigate("/login");
+      return;
     }
   }, [navigate]);
-  
-  // Fetch Suggested Songs
+
   useEffect(() => {
     const fetchSongs = async () => {
       try {
@@ -26,71 +27,61 @@ const Dashboard = () => {
       } catch (error) {
         console.error("Error fetching suggested songs:", error);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
-
     fetchSongs();
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      {/* Create Playlist Section */}
-      <motion.div
-        className="flex justify-center"
-        whileHover={{ scale: 1.05 }}
-      >
-        <button
-          className="bg-purple-600 px-6 py-3 rounded-md text-white font-semibold shadow-lg hover:bg-purple-700 transition"
-          onClick={() => navigate("/playlists")}
-        >
-          ➕ Create Playlist
-        </button>
-      </motion.div>
+    <div className="dashboard-container">
+      <DashboardHeader /> 
 
-      {/* User Playlists */}
-      <h2 className="text-2xl font-bold mt-8 mb-4">🎵 Your Playlists</h2>
+      <motion.button
+        className="create-playlist-btn"
+        whileHover={{ scale: 1.1 }}
+        onClick={() => navigate("/playlists")}
+      >
+         Create Playlist
+      </motion.button>
+
+      <h2 className="section-title">🎵 Your Playlists</h2>
       {loading ? (
-        <p className="text-gray-400">Loading playlists...</p>
+        <p className="loading-text">Loading playlists...</p>
       ) : playlists.length === 0 ? (
-        <p className="text-gray-500">You have no playlists yet. Create one!</p>
+        <p className="empty-state">You have no playlists yet. Create one!</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="playlist-grid">
           {playlists.map((playlist) => (
             <motion.div
               key={playlist._id}
-              className="bg-gray-800 p-4 rounded-lg shadow-lg"
+              className="playlist-card"
               whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-lg font-semibold">{playlist.name}</h3>
-              <p className="text-sm text-gray-400">{playlist.songs.length} songs</p>
-              <button className="mt-3 bg-blue-500 px-4 py-2 rounded-md text-white hover:bg-blue-600">
-                View Playlist
-              </button>
+              <h3>{playlist.name}</h3>
+              <p>{playlist.songs.length} songs</p>
+              <button className="view-btn">View Playlist</button>
             </motion.div>
           ))}
         </div>
       )}
 
-      {/* Suggested Songs */}
-      <h2 className="text-2xl font-bold mt-8 mb-4">🔥 Suggested Songs</h2>
+      <h2 className="section-title">🔥 Suggested Songs</h2>
       {loading ? (
-        <p className="text-gray-400">Loading suggested songs...</p>
+        <p className="loading-text">Loading suggested songs...</p>
       ) : suggestedSongs.length === 0 ? (
-        <p className="text-gray-500">No song suggestions available.</p>
+        <p className="empty-state">No song suggestions available.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="songs-grid">
           {suggestedSongs.map((song) => (
             <motion.div
               key={song._id}
-              className="bg-gray-800 p-4 rounded-lg shadow-lg"
+              className="song-card"
               whileHover={{ scale: 1.05 }}
             >
-              <h3 className="text-lg font-semibold">{song.title}</h3>
-              <p className="text-sm text-gray-400">{song.artist}</p>
-              <button className="mt-3 bg-green-500 px-4 py-2 rounded-md text-white hover:bg-green-600">
-                Play
-              </button>
+              <h3>{song.title}</h3>
+              <p>{song.artist}</p>
+              <button className="play-btn">Play</button>
             </motion.div>
           ))}
         </div>

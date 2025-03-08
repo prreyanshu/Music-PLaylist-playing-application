@@ -1,0 +1,152 @@
+/* Fullscreen Centered Dashboard */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+  
+  /* Loading & Empty State */
+  .loading-text, .empty-state {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-top: 10px;
+  }
+  
+  /* Playlists & Songs Grid */
+  .playlist-grid, .songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+  }
+  
+  /* Playlist & Songs Cards */
+  .playlist-card, .song-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .playlist-card:hover, .song-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Buttons */
+  .create-playlist-btn {
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #06b6d4, #0284c7);
+    color: white;
+    padding: 12px 80px;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+    margin-top: 20px; /* Ensure spacing below playlist link */
+  }
+  .create-playlist-btn:hover {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(6, 182, 212, 0.6);
+  }
+  
+/* Container to position the logout button */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Logout Button - Top Right Corner */
+.logout-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background-color: #dc2626;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c;
+  transform: scale(1.1);
+}
+/* Make sure the parent container is positioned correctly */
+.dashboard-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Start content from the top */
+  min-height: 100vh;
+  padding-top: 80px; /* Adjust spacing to prevent overlap */
+}
+
+/* Logout Button - Fixed in Top Right Corner */
+.logout-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background-color: #dc2626; /* Vibrant Red */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c; /* Darker Red */
+  transform: scale(1.1);
+}
+
+/* Playlist Link - Modern & Aesthetic */
+.playlist-link {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #a855f7, #9333ea);
+  padding: 7px 85px;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.4);
+  margin-right: auto; /* Push it to the left */
+}
+
+.playlist-link:hover {
+  background: linear-gradient(135deg, #7e22ce, #6b21a8);
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.6);
+}

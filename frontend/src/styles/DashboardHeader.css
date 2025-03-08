@@ -1,0 +1,51 @@
+/* Header */
+.dashboard-header {
+  background-color: #111827; /* Dark background */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed; /* Fix to top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  background: #22d3ee;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+  background: #0ea5e9;
+  transform: scale(1.1);
+}
+
+/* Logout Button */
+.logout-btn {
+  background: #ef4444;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
